@@ -1,4 +1,4 @@
-package model;
+package com.marek.springapplication.model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -9,22 +9,16 @@ import javax.persistence.Table;
 @Entity
 @Table (name = "contacts")
 public class Contact implements Serializable{
-    
     @Id
     private int id;
-    
     @Column
     private String name;
-    
     @Column
     private String lastName;
-    
     @Column
     private String mail;
-    
     @Column
     private String number;
-    
     @Column
     private String bornDate;
 
@@ -74,7 +68,5 @@ public class Contact implements Serializable{
 
     public void setBornDate(String bornDate) {
         this.bornDate = bornDate;
-    }
-    
-    
+    } 
 }

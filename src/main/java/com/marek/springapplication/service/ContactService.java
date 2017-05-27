@@ -1,7 +1,7 @@
-package service;
+package com.marek.springapplication.service;
 
+import com.marek.springapplication.model.Contact;
 import java.util.List;
-import model.Contact;
 
 public interface ContactService {
     public List<Contact> getAllContacts();

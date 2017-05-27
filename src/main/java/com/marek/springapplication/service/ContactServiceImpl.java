@@ -1,9 +1,8 @@
-package service;
+package com.marek.springapplication.service;
 
-
-import dao.ContactDAO;
+import com.marek.springapplication.dao.ContactDAO;
+import com.marek.springapplication.model.Contact;
 import java.util.List;
-import model.Contact;
 import org.springframework.stereotype.Service;
 
 @Service

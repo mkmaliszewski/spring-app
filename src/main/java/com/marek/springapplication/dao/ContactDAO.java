@@ -1,7 +1,7 @@
-package dao;
+package com.marek.springapplication.dao;
 
+import com.marek.springapplication.model.Contact;
 import java.util.List;
-import model.Contact;
 
 public interface ContactDAO {
     public List<Contact> getAllContacts();

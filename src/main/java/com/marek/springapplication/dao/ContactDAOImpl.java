@@ -1,20 +1,21 @@
-package dao;
+package com.marek.springapplication.dao;
 
+import com.marek.springapplication.model.Contact;
 import java.util.List;
-import model.Contact;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
+//@Repository
 public class ContactDAOImpl implements ContactDAO{
-    @Autowired
-    private SessionFactory sessionFactory;
+//    @Autowired
+//    private SessionFactory sessionFactory;
 
     @Override
     public List<Contact> getAllContacts() {
-        return sessionFactory.getCurrentSession().createQuery("from contacts")
-                .list();
+//        return sessionFactory.getCurrentSession().createQuery("from contacts")
+//                .list();
+    return null;
     }
 
     @Override
@@ -35,6 +36,5 @@ public class ContactDAOImpl implements ContactDAO{
     @Override
     public void updateContact(Contact contact) {
         
-    }
-    
+    } 
 }
