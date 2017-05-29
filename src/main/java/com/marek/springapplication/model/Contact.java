@@ -1,25 +1,26 @@
 package com.marek.springapplication.model;
 
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table (name = "contacts")
-public class Contact implements Serializable{
+@Table(name="contacts")
+public class Contact{
     @Id
     private int id;
     @Column
     private String name;
-    @Column
+    @Column (name = "last_name")
     private String lastName;
     @Column
     private String mail;
     @Column
     private String number;
-    @Column
+    @Column (name = "born")
     private String bornDate;
 
     public int getId() {
