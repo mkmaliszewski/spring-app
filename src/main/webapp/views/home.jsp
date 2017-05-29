@@ -7,7 +7,9 @@
         <title>Home Page</title>
     </head>
     <body>
-        <h1>HOme Page</h1>
+        <h1>Contacts list</h1>
+        <p>New contact:</p>
+        <a href="">New contact</a>
         <table>
             <thead>
                 <tr>
@@ -22,13 +24,13 @@
             <tbody>
             <c:forEach items="${listOfContacts}" var="contact">
                 <tr>
-                    <td><c:out value="${contact.name}" /></td>
-                    <td><c:out value="${contact.lastName}" /></td>
-                    <td><c:out value="${contact.mail}" /></td>
-                    <td><c:out value="${contact.number}" /></td>
-                    <td><c:out value="${contact.bornDate}" /></td>
-                    <td><a href="Controller?action=edit&id=<c:out value="${contact.id}" />">Edit</a></td>
-                    <td><a href="Controller?action=delete&id=<c:out value="${contact.id}" />">Delete</a></td>
+                    <td>${contact.name}</td>
+                    <td>${contact.lastName}</td>
+                    <td>${contact.mail}</td>
+                    <td>${contact.number}</td>
+                    <td>${contact.bornDate}</td>
+                    <td><a href="editContact/${contact.id}">Edit</a></td>
+                    <td><a href="deleteContact/${contact.id}">Delete</a></td>
                 </tr>
             </c:forEach>
             </tbody>

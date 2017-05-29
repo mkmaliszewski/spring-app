@@ -29,8 +29,9 @@ public class ContactServiceImpl implements ContactService{
     }
 
     @Override
+    @Transactional
     public void deleteContact(int contactId) {
-        
+        contactDAO.deleteContact(contactId);
     }
 
     @Override

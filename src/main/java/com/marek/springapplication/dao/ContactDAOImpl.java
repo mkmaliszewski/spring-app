@@ -2,6 +2,7 @@ package com.marek.springapplication.dao;
 
 import com.marek.springapplication.model.Contact;
 import java.util.List;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,8 +14,9 @@ public class ContactDAOImpl implements ContactDAO{
 
     @Override
     public List<Contact> getAllContacts() {
-        return sessionFactory.getCurrentSession().createQuery("from Contact")
-                .list();
+        Session session = sessionFactory.getCurrentSession();
+        List<Contact> listOfContacts = session.createQuery("from Contact").list();
+        return listOfContacts;
     }
 
     @Override
@@ -29,7 +31,11 @@ public class ContactDAOImpl implements ContactDAO{
 
     @Override
     public void deleteContact(int contactId) {
-        
+        Session session = sessionFactory.getCurrentSession();
+        Contact contact = session.load(Contact.class, contactId);
+        if (contact != null){
+            session.delete(contact);
+        }
     }
 
     @Override
