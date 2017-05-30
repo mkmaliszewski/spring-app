@@ -9,7 +9,7 @@
     <body>
         <h1>Contacts list</h1>
         <p>New contact:</p>
-        <a href="">New contact</a>
+        <a href="add">New contact</a>
         <table>
             <thead>
                 <tr>
@@ -18,7 +18,7 @@
                     <td>Mail</td>
                     <td>Number</td>
                     <td>Born</td>
-                    <td colspan = "2">Ation</td>
+                    <td colspan="2">Ation</td>
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +29,8 @@
                     <td>${contact.mail}</td>
                     <td>${contact.number}</td>
                     <td>${contact.bornDate}</td>
-                    <td><a href="editContact/${contact.id}">Edit</a></td>
-                    <td><a href="deleteContact/${contact.id}">Delete</a></td>
+                    <td><a href="edit/${contact.id}">Edit</a></td>
+                    <td><a href="delete/${contact.id}">Delete</a></td>
                 </tr>
             </c:forEach>
             </tbody>

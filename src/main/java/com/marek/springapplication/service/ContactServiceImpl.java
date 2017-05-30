@@ -19,13 +19,15 @@ public class ContactServiceImpl implements ContactService{
     }
 
     @Override
+    @Transactional
     public void addContact(Contact newContact) {
-        
+        contactDAO.addContact(newContact);
     }
 
     @Override
+    @Transactional
     public Contact getContact(int contactId) {
-        return null;
+        return contactDAO.getContact(contactId);
     }
 
     @Override
@@ -35,7 +37,8 @@ public class ContactServiceImpl implements ContactService{
     }
 
     @Override
+    @Transactional
     public void updateContact(Contact contact) {
-        
+        contactDAO.updateContact(contact);
     }
 }

@@ -16,17 +16,22 @@ public class ContactDAOImpl implements ContactDAO{
     public List<Contact> getAllContacts() {
         Session session = sessionFactory.getCurrentSession();
         List<Contact> listOfContacts = session.createQuery("from Contact").list();
+        
         return listOfContacts;
     }
 
     @Override
     public void addContact(Contact newContact) {
-        
+        Session session = sessionFactory.getCurrentSession();
+        session.persist(newContact);
     }
 
     @Override
     public Contact getContact(int contactId) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Contact contact = session.get(Contact.class, contactId);
+
+        return contact;
     }
 
     @Override
@@ -40,6 +45,7 @@ public class ContactDAOImpl implements ContactDAO{
 
     @Override
     public void updateContact(Contact contact) {
-        
+        Session session = sessionFactory.getCurrentSession();
+        session.update(contact);
     } 
 }
