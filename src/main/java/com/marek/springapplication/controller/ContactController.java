@@ -41,11 +41,19 @@ public class ContactController {
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String saveContact(@ModelAttribute("contact") Contact contact){
         if (contact.getId() == 0){
-            
+            contactService.addContact(contact);
         }
         else {
             contactService.updateContact(contact);
         }
+        
         return "redirect:/";
+    }
+    
+    @RequestMapping(value = "/add")
+    public String addContact(Model model){
+        model.addAttribute("contact", new Contact());
+        
+        return "newContact";
     }
 }
