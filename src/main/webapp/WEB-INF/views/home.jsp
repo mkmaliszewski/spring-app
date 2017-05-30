@@ -5,7 +5,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Home Page</title>
-        <link rel="stylesheet" type="text/css" href="resources/mystyles.css">
+        <link rel="stylesheet" type="text/css" 
+              href="${pageContext.request.contextPath}/resources/mystyles.css">
     </head>
     <body>
         <h1>Contacts list</h1>

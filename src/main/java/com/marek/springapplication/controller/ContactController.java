@@ -3,9 +3,11 @@ package com.marek.springapplication.controller;
 import com.marek.springapplication.model.Contact;
 import com.marek.springapplication.service.ContactService;
 import java.util.List;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +41,11 @@ public class ContactController {
     }
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
-    public String saveContact(@ModelAttribute("contact") Contact contact){
+    public String saveContact(@Valid @ModelAttribute("contact") Contact contact,
+            BindingResult result){
+        if (result.hasErrors()){
+            return "newContact";
+        }
         if (contact.getId() == 0){
             contactService.addContact(contact);
         }
