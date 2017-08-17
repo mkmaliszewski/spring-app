@@ -11,11 +11,11 @@
     </head>
     <body>
         <h1>Fill the form to add/edit a contact:</h1>
-        <form:form action="/SpringApplication/save" method="post" 
-                   modelAttribute="contact" autocomplete="off">
+        <form:form method="post" modelAttribute="contact" autocomplete="off"
+                   action="${pageContext.request.contextPath}/add">
             <form:hidden path="id" />
             <form:label path="name">Name:</form:label><br />
-            <form:input path="name"></form:input><br />
+            <form:input path="name" autofocus="true"></form:input><br />
             <form:errors path="name" cssclass="error"></form:errors><br />
             
             <form:label path="lastName">Last Name:</form:label><br />
@@ -34,8 +34,8 @@
             <form:input path="bornDate"></form:input><br />
             <form:errors path="bornDate" cssclass="error"></form:errors><br />
             
-            <input type="reset">
-            <input type="submit">
-        </form:form>
+            <input type="submit" value="Submit">
+            <a href="${pageContext.request.contextPath}/list" class="cancel">Cancel</a>
+        </form:form>        
     </body>
 </html>

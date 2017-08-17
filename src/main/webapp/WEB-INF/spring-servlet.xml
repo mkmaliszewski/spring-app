@@ -16,7 +16,7 @@
     
     <mvc:resources mapping="/resources/**" location="/resources/" />
     
-    <mvc:annotation-driven />
+    <mvc:annotation-driven conversion-service="conversionService"/>
     
     <bean
         class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -24,25 +24,21 @@
         <property name="suffix" value=".jsp" />
     </bean>
     
-    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-        id="dataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"></property>
-        <property name="url" value="jdbc:postgresql://localhost:5432/MyDatabase"></property>
-        <property name="username" value="postgres"></property>
-        <property name="password" value="admin123"></property>
-    </bean>
-    
     <bean id="sessionFactory"
         class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.dialect">
+                    org.hibernate.dialect.PostgreSQLDialect
+                </prop>
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
             </props>
         </property>
-        <property name="packagesToScan" value="com.marek.springapplication.model"></property>
+        <property name="packagesToScan" 
+                  value="com.marek.springapplication.model">
+        </property>
     </bean>
     
     <bean id="transactionManager"
@@ -51,4 +47,16 @@
     </bean>
     
     <tx:annotation-driven transaction-manager="transactionManager" />
+    
+    <bean 
+        id="conversionService" 
+        class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean 
+                    id="stringToUserRole" 
+                    class="com.marek.springapplication.converter.StringToUserRoleConverter" />
+            </list>
+        </property>
+    </bean>
 </beans>

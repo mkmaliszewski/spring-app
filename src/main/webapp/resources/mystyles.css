@@ -1,6 +1,6 @@
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 100%;
     text-align: center;  
 }
 
@@ -9,7 +9,7 @@ td {
     height: 25px;
 }
 
-tr:hover {
+table tbody tr:not(thead):hover {
     background-color: #f5f5f5;
 }
 
@@ -17,8 +17,9 @@ thead {
     background-color: yellow;
 }
 
-a {
-    font: bold 11px Arial;
+.button {
+    width: 80px;
+    text-align: center;
     text-decoration: none;
     background-color: #EEEEEE;
     color: #333333;
@@ -29,6 +30,16 @@ a {
     border-left: 1px solid #CCCCCC;
 }
 
+.cancel {
+    text-decoration: none;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 14px;
+    text-align: center;
+    background-color: red;
+    color: white;
+}
+
 input {
     width: 30%;
     padding: 12px 20px;
@@ -36,21 +47,34 @@ input {
     box-sizing: border-box;
 }
 
-input[type=submit],[type=reset] {
-    width: 15%;
-    background-color: #4CAF50;
-    color: white;
+input[type=submit], .cancel {
+    width: 14%;
     padding: 14px 20px;
     margin: 8px 0;
+    margin-right: 30px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 
-input:focus {
+input[type=submit] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input:not([type=submit]):focus {
     background-color: darksalmon;
 }
 
 [cssclass] {
     color: red;
+    font-weight: bold;
+}
+
+label {
+    font-size: 20px;
+}
+
+select {
+    width: 30%;
 }

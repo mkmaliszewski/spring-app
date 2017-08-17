@@ -1,0 +1,41 @@
+body {
+    background: repeating-linear-gradient(45deg, darkred, darkred 2px, #330000 3px, #330000 8px);
+}
+
+.container {
+    position: absolute;
+    left: 0; 
+    right: 0;
+    top: 0; 
+    bottom: 0;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: auto;
+    width: 85%;
+    height: 40%;
+    cursor: not-allowed;
+}
+
+h1 {
+    padding-top: 2%;
+    font-size: 60px;
+    font-family: Arial;
+    text-align: center;
+    border-bottom: 1px solid #333;
+    border-bottom-style: dashed;
+    padding-bottom: 2%;
+}
+
+span {
+    color: red;
+    text-decoration: none;
+    cursor: not-allowed;
+}
+
+p {
+    text-align: center;
+    font-family: Arial;
+    font-weight: bold;
+    padding-bottom: 3%;
+    font-size: 30px;
+}
